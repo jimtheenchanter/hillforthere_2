@@ -19,7 +19,7 @@ import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.toast
 
 class HillfortActivity : AppCompatActivity(), AnkoLogger {
-
+    var edit = false;
     // creating a hillfort as a class member:
     var hillfort = HillfortModel()
     //reference the MainApp object.
@@ -36,11 +36,11 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
         setSupportActionBar(toolbarAdd)
         app = application as MainApp // initialize the app
         info("Hillfort Activity initialized")
-
-        var edit = false
+        edit = true
+//        var edit = false
         //read back the hillfort, and place its field into the view controls.
         if (intent.hasExtra("hillfort_edit")) {
-            edit = true
+           edit = true
             hillfort = intent.extras?.getParcelable<HillfortModel>("hillfort_edit")!!
 
             hillfortName.setText(hillfort.title)
@@ -93,10 +93,11 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             }
             startActivityForResult(intentFor<MapActivity>().putExtra("location", location), LOCATION_REQUEST)
         }
-
     }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_hillfort, menu)
+        if (edit && menu != null) menu.getItem(1).setVisible(true)
         return super.onCreateOptionsMenu(menu)
     }
 
