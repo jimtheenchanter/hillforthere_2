@@ -51,12 +51,12 @@ class HillfortView : BaseView(), AnkoLogger {
 //        if (hillfort.image != null) {
             chooseImage.setText(R.string.change_image)
 //        /}
-        btnAdd.setText(R.string.save_hillfort)
+//        btnAdd.setText(R.string.save_hillfort)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_hillfort, menu)
-        if (presenter.edit && menu != null) menu.getItem(1).setVisible(true)
+//        if (presenter.edit && menu != null) menu.getItem(1).setVisible(true)
         return super.onCreateOptionsMenu(menu)
     }
 
