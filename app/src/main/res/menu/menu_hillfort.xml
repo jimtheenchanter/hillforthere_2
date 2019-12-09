@@ -13,5 +13,9 @@
     android:title="@string/menu_deleteHillfort"
     app:showAsAction="always"/>
 
-
+    <item
+        android:visible="false"
+        android:id="@+id/item_save"
+        android:title="@string/menu_saveHillfort"
+        app:showAsAction="always"/>
     </menu>

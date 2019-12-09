@@ -39,11 +39,16 @@ class HillfortMemStore : HillfortStore, AnkoLogger {
         }
     }
 
-    override fun delete(placemark: HillfortModel) {
-        hillforts.remove(placemark)
+    override fun delete(hillfort: HillfortModel) {
+        hillforts.remove(hillfort)
     }
 
     fun logAll() {
         hillforts.forEach{ info("${it}") }
+    }
+
+    override fun findById(id:Long) : HillfortModel? {
+        val foundHillfort: HillfortModel? = hillforts.find { it.id == id }
+        return foundHillfort
     }
 }

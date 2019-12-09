@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">Hillfort Here</string>
+    <string name="menu_saveHillfort">Save Hillfort</string>
     <string name="button_addHillfort">Save Hillfort</string>
     <string name="hint_hillfortName">Enter Hillfort name</string>
     <string name="hint_hillfortDescription">Description </string>
     <string name="menu_addHillfort">Add</string>
     <string name="menu_cancelHillfort">Cancel</string>
-    <string name="activity_addTitle">Add a title</string>
     <string name="button_addImage"> Add Image </string>
     <string name="save_hillfort"> Save Hillfort </string>
     <string name="select_hillfort_image">Select Hillfort Image</string>
@@ -18,8 +18,10 @@
     <string name="menu_stats">Statistics</string>
     <string name="edtPassword">secret</string>
     <string name="edtUsername">homer@simpson.com</string>
-    <string name="login" >Log In</string>
-    <string name="visited"> Click if you visit Hillfort</string>
     <string name="titleLongitude">Longitude:  </string>
-    <string name="titleLatitude">Latitude:  </string>
+    <string name="title_activity_hillfort_maps">Map of all Placemarks</string>
+    <string name="hillfort_title_placeholder">Hillfort Title</string>
+    <string name="hillfort_image_placeholder">Hillfort Image</string>
+    <string name="hillfort_description_placeholder">Description</string>
+    <string name="uploadImage">uploadimage</string>
 </resources>

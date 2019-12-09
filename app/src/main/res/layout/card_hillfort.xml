@@ -57,7 +57,7 @@
             android:layout_below="@id/description"
             android:layout_toRightOf="@+id/imageIcon"
             android:textSize="10sp"
-            android:contentDescription="@string/longitude:"/>
+            android:contentDescription="@string/titleLongitude"/>
 
 
         <TextView

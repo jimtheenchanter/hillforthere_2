@@ -41,8 +41,8 @@ class HillfortAdapter constructor(private var hillforts: List<HillfortModel>,
             itemView.hillfortName.text = hillfort.title
             itemView.description.text = hillfort.description
             itemView.imageIcon.setImageBitmap(readImageFromPath(itemView.context, hillfort.image))
-            itemView.latitude.text = hillfort.lat.toString()
-            itemView.longitude.text = hillfort.lng.toString()
+//            itemView.latitude.text = hillfort.lat.toString()
+//            itemView.longitude.text = hillfort.lng.toString()
             itemView.setOnClickListener { listener.onHillfortClick(hillfort)}
 
             }

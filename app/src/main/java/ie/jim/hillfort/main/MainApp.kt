@@ -34,6 +34,7 @@ class MainApp : Application(), AnkoLogger {
         hillforts.create(HillfortModel(3, "Allihies ", "Promontory fort" , "", 51.64829, -10.05654, 0f ))
         hillforts.create(HillfortModel(4, "Ardaturrish More", "Promontory fort" , "", 51.71894, -9.4917, 0f ))
         hillforts.create(HillfortModel(5, "Ballycotten", "Contour fort" , "", 52.96108, -9.39171, 0f ))
+        hillforts.create(HillfortModel(6, "Grianain of Aileach", "Saucepan Fort" , "", 55.02372, -7.42750, 0f ))
         info("Hillfort database loaded")
     }
 }

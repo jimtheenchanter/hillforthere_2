@@ -37,8 +37,8 @@ import android.view.Window
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import ie.jim.hillfort.R
+import ie.jim.hillfort.views.hillfortList.HillfortListView
 //import ie.jim.hillfort.R.layout
-import ie.jim.hillfort.main.MainApp
 
 class SplashActivity : AppCompatActivity() {
 
@@ -49,7 +49,7 @@ class SplashActivity : AppCompatActivity() {
         // Using a handler to delay loading the MainActivity
         Handler().postDelayed({
             // Start activity
-            startActivity(Intent(this, HillfortListActivity::class.java))
+            startActivity(Intent(this, HillfortListView::class.java))
             // Animate the loading of new activity
 //            overridePendingTransition(ie.jim.hillfort.R.anim.fade_in, android.R.anim.fade_out)
 //            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
