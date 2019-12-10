@@ -1,22 +1,21 @@
 package ie.jim.hillfort.views.hillfort
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.view.Menu
 import android.view.MenuItem
-import com.google.android.gms.maps.GoogleMap
-import org.jetbrains.anko.toast
-import ie.jim.hillfort.R // access resources
+import ie.jim.hillfort.R
 import ie.jim.hillfort.helpers.readImageFromPath
 import ie.jim.hillfort.models.HillfortModel
-import org.jetbrains.anko.AnkoLogger // allow console logging
-import org.jetbrains.anko.info  // allow info windows
 import ie.jim.hillfort.views.BaseView
 import kotlinx.android.synthetic.main.activity_hillfort.*
-import kotlinx.android.synthetic.main.activity_hillfort.description
-import kotlinx.android.synthetic.main.card_hillfort.*
-import kotlinx.android.synthetic.main.activity_hillfort.hillfortName as hillfortName1
+//import kotlinx.android.synthetic.main.activity_hillfort.description
+//import kotlinx.android.synthetic.main.card_hillfort.*
+import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.info
+import org.jetbrains.anko.toast
+
 
 
 class HillfortView : BaseView(), AnkoLogger {
@@ -29,7 +28,7 @@ class HillfortView : BaseView(), AnkoLogger {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hillfort)
-        super.init(toolbarAdd)
+        super.init(toolbarAdd, true)
         info("Hillfort Activity initialized")
         presenter = initPresenter (HillfortPresenter(this)) as HillfortPresenter
         mapView.onCreate(savedInstanceState);
@@ -51,12 +50,16 @@ class HillfortView : BaseView(), AnkoLogger {
         lat.setText("%.6f".format(hillfort.lat))
         lng.setText("%.6f".format(hillfort.lng))
     }
+
+    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
+        super.onCreate(savedInstanceState, persistentState)
+    }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_hillfort, menu)
        if (presenter.edit && menu != null) menu.getItem(1).setVisible(true)
         return super.onCreateOptionsMenu(menu)
     }
-
 
     // activity that checks that a button is pressed and reports back boolean
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -104,7 +107,7 @@ class HillfortView : BaseView(), AnkoLogger {
     override fun onResume() {
         super.onResume()
         mapView.onResume()
-        presenter.doResartLocationUpdates()
+        presenter.doRestartLocationUpdates()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {

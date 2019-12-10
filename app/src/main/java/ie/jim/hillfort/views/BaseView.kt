@@ -7,9 +7,7 @@ import androidx.appcompat.widget.Toolbar
 import org.jetbrains.anko.AnkoLogger
 import ie.jim.hillfort.models.HillfortModel
 import ie.jim.hillfort.views.editLocation.EditLocationView
-//import ie.jim.hillfort.views.editlocation.EditLocationView
 import ie.jim.hillfort.views.hillfort.HillfortView
-//import ie.jim.hillfort.views.hillfortList.HillfortListPresenter
 import ie.jim.hillfort.views.hillfortList.HillfortListView
 import ie.jim.hillfort.views.map.HillfortMapView
 
@@ -43,9 +41,10 @@ open abstract class BaseView() : AppCompatActivity(), AnkoLogger {
         return presenter
     }
 
-    fun init(toolbar: Toolbar) {
+    fun init(toolbar: Toolbar, upEnabled: Boolean) {
         toolbar.title = title
         setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(upEnabled)
     }
 
     override fun onDestroy() {
@@ -69,4 +68,5 @@ open abstract class BaseView() : AppCompatActivity(), AnkoLogger {
     open fun showHillforts(hillforts: List<HillfortModel>) {}
     open fun showProgress() {}
     open fun hideProgress() {}
+    open fun showLocation(latitude : Double, longitude : Double) {}
 }

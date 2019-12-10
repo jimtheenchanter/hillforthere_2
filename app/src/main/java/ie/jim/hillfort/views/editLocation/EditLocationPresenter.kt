@@ -21,6 +21,7 @@ class EditLocationPresenter(view: BaseView) : BasePresenter(view) {
 
     fun doConfigureMap(map: GoogleMap) {
         val loc = LatLng(location.lat, location.lng)
+
         val options = MarkerOptions()
             .title("Hillfort")
             .snippet("GPS : " + loc.toString())
@@ -28,6 +29,7 @@ class EditLocationPresenter(view: BaseView) : BasePresenter(view) {
             .position(loc)
         map.addMarker(options)
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(loc, location.zoom))
+        view?.showLocation(loc.latitude, loc.longitude)
     }
 
     fun doUpdateLocation(lat: Double, lng: Double) {
