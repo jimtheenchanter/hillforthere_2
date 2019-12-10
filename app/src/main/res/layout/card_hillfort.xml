@@ -36,17 +36,14 @@
             android:layout_toEndOf="@+id/imageIcon"/>
 
 
-<!--        android:layout_alignParentStart="true" -->
-        <!--            android:layout_alignParentTop="true" -->
-
         <ImageView
             android:id="@+id/location"
             android:src="@mipmap/ic_menu_mylocation"
             android:layout_width="16dp"
             android:layout_height="16dp"
-            android:layout_toRightOf="@+id/imageIcon"
+            android:layout_toEndOf="@+id/imageIcon"
             android:layout_below="@+id/description"
-            android:layout_toLeftOf="@+id/longitude"
+            android:layout_toStartOf="@+id/longitude"
             android:contentDescription="@string/change_image" />
 
 
@@ -55,9 +52,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/description"
-            android:layout_toRightOf="@+id/imageIcon"
-            android:textSize="10sp"
-            android:contentDescription="@string/titleLongitude"/>
+            android:layout_toEndOf="@+id/imageIcon"
+            android:contentDescription="@string/titleLongitude"
+            android:textSize="12sp" />
 
 
         <TextView
@@ -65,8 +62,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/description"
-            android:layout_toRightOf="@+id/longitude"
-            android:textSize="10sp"/>
+            android:layout_toEndOf="@+id/longitude"
+            android:textSize="12sp" />
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

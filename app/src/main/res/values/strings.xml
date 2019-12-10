@@ -19,9 +19,12 @@
     <string name="edtPassword">secret</string>
     <string name="edtUsername">homer@simpson.com</string>
     <string name="titleLongitude">Longitude:  </string>
-    <string name="title_activity_hillfort_maps">Map of all Placemarks</string>
+    <string name="title_activity_hillfort_maps">Map of all Hillforts</string>
     <string name="hillfort_title_placeholder">Hillfort Title</string>
     <string name="hillfort_image_placeholder">Hillfort Image</string>
     <string name="hillfort_description_placeholder">Description</string>
     <string name="uploadImage">uploadimage</string>
+    <string name="todo">TODO</string>
+    <string name="_00_000000">00.000000</string>
+    <string name="image">image</string>
 </resources>

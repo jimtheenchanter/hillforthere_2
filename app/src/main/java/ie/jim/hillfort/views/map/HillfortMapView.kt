@@ -1,40 +1,45 @@
 package ie.jim.hillfort.views.map
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import ie.jim.hillfort.R
 import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.Marker
 import ie.jim.hillfort.helpers.readImageFromPath
 import ie.jim.hillfort.models.HillfortModel
+import ie.jim.hillfort.views.BaseView
 import kotlinx.android.synthetic.main.activity_hillfort_maps.*
 import kotlinx.android.synthetic.main.content_hillfort_maps.*
 
-class HillfortMapView : AppCompatActivity(), GoogleMap.OnMarkerClickListener  {
+class HillfortMapView : BaseView(), GoogleMap.OnMarkerClickListener {
 
-//   lateinit var map: GoogleMap
     lateinit var presenter: HillfortMapPresenter
-//    var hillfort = HillfortModel()
+    lateinit var map : GoogleMap
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_hillfort_maps) //display  the map layout
-//        val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
-//        location = intent.extras?.getParcelable<Location>("location")!! //set  location  from model
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-       presenter = HillfortMapPresenter(this)
+        setContentView(R.layout.activity_hillfort_maps)
+        super.init(toolbar)
+
+        presenter = initPresenter (HillfortMapPresenter(this)) as HillfortMapPresenter
+
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync {
-            presenter.doPopulateMap(it)
+            map = it
+            map.setOnMarkerClickListener(this)
+            presenter.loadHillforts()
         }
     }
 
-
-    fun showHillfort(hillfort: HillfortModel) {
+    override fun showHillfort(hillfort: HillfortModel) {
         currentTitle.text = hillfort.title
         currentDescription.text = hillfort.description
         currentImage.setImageBitmap(readImageFromPath(this, hillfort.image))
+    }
+
+
+    override fun showHillforts(hillforts: List<HillfortModel>) {
+        presenter.doPopulateMap(map, hillforts)
     }
 
     override fun onMarkerClick(marker: Marker): Boolean {

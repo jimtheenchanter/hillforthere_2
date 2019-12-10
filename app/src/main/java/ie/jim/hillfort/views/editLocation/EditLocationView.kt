@@ -1,17 +1,13 @@
 package ie.jim.hillfort.views.editLocation
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.Marker
 import ie.jim.hillfort.R
-import ie.jim.hillfort.views.editLocation.EditLocationPresenter
-import kotlinx.android.synthetic.main.activity_hillfort_maps.*
-import kotlinx.android.synthetic.main.content_hillfort_maps.*
+import ie.jim.hillfort.views.BaseView
 
-class EditLocationView : AppCompatActivity(), GoogleMap.OnMarkerDragListener, GoogleMap.OnMarkerClickListener {
-
+class EditLocationView  : BaseView(), GoogleMap.OnMarkerDragListener, GoogleMap.OnMarkerClickListener {
 
     lateinit var map: GoogleMap
     lateinit var presenter: EditLocationPresenter
@@ -20,14 +16,12 @@ class EditLocationView : AppCompatActivity(), GoogleMap.OnMarkerDragListener, Go
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_location)
         val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
-
-        presenter =
-            EditLocationPresenter(this)
+        presenter = EditLocationPresenter(this)
         mapFragment.getMapAsync {
             map = it
             map.setOnMarkerDragListener(this)
             map.setOnMarkerClickListener(this)
-            presenter.initMap(map)
+            presenter.doConfigureMap(map)
         }
     }
 
@@ -36,16 +30,15 @@ class EditLocationView : AppCompatActivity(), GoogleMap.OnMarkerDragListener, Go
     override fun onMarkerDrag(marker: Marker) {}
 
     override fun onMarkerDragEnd(marker: Marker) {
-        presenter.doUpdateLocation(marker.position.latitude, marker.position.longitude, map.cameraPosition.zoom)
+        presenter.doUpdateLocation(marker.position.latitude, marker.position.longitude)
     }
 
     override fun onBackPressed() {
-        presenter.doOnBackPressed()
+        presenter.doSave()
     }
 
     override fun onMarkerClick(marker: Marker): Boolean {
         presenter.doUpdateMarker(marker)
         return false
     }
-
 }
