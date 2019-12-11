@@ -1,11 +1,14 @@
 package ie.jim.hillfort.views
 
 import android.content.Intent
+
 import android.os.Parcelable
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import org.jetbrains.anko.AnkoLogger
+
 import ie.jim.hillfort.models.HillfortModel
+import ie.jim.hillfort.models.Location
 import ie.jim.hillfort.views.editLocation.EditLocationView
 import ie.jim.hillfort.views.hillfort.HillfortView
 import ie.jim.hillfort.views.hillfortList.HillfortListView
@@ -68,5 +71,5 @@ open abstract class BaseView() : AppCompatActivity(), AnkoLogger {
     open fun showHillforts(hillforts: List<HillfortModel>) {}
     open fun showProgress() {}
     open fun hideProgress() {}
-    open fun showLocation(latitude : Double, longitude : Double) {}
+    open fun showLocation(location : Location) {}
 }

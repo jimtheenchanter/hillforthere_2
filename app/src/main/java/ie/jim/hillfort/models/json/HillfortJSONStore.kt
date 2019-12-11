@@ -1,12 +1,13 @@
-package ie.jim.hillfort.models
+package ie.jim.hillfort.models.json
 
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
-import ie.jim.hillfort.HillfortStore
+import ie.jim.hillfort.models.HillfortStore
 import org.jetbrains.anko.AnkoLogger
 import ie.jim.hillfort.helpers.*
+import ie.jim.hillfort.models.HillfortModel
 import java.util.*
 
 val JSON_FILE = "hillforts.json"
@@ -47,9 +48,7 @@ class HillfortJSONStore : HillfortStore, AnkoLogger {
             foundHillfort.title = hillfort.title
             foundHillfort.description = hillfort.description
             foundHillfort.image = hillfort.image
-            foundHillfort.lat = hillfort.lat
-            foundHillfort.lng = hillfort.lng
-            foundHillfort.zoom = hillfort.zoom
+            foundHillfort.location = hillfort.location
 //            foundHillfort.visited = hillfort.visited
         }
         serialize()
@@ -61,13 +60,17 @@ class HillfortJSONStore : HillfortStore, AnkoLogger {
     }
 
     private fun serialize() {
-        val jsonString = gsonBuilder.toJson(hillforts, listType)
+        val jsonString = gsonBuilder.toJson(hillforts,
+            listType
+        )
         write(context, JSON_FILE, jsonString)
     }
 
     private fun deserialize() {
         val jsonString = read(context, JSON_FILE)
-        hillforts = Gson().fromJson(jsonString, listType)
+        hillforts = Gson().fromJson(jsonString,
+            listType
+        )
     }
 
     override fun findById(id:Long) : HillfortModel? {

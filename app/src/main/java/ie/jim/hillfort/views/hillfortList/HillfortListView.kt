@@ -1,30 +1,24 @@
 package ie.jim.hillfort.views.hillfortList
 
-
-import HillfortAdapter
-import HillfortListener
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import ie.jim.hillfort.R
 import ie.jim.hillfort.models.HillfortModel
-//import ie.jim.hillfort.views.BasePresenter
 import ie.jim.hillfort.views.BaseView
 import kotlinx.android.synthetic.main.activity_hillfort_list.*
-
 
 class HillfortListView : BaseView(), HillfortListener {
 
 
     lateinit var presenter: HillfortListPresenter
-//    lateinit var app: MainApp // Retrieve and store a reference to the MainApp object
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hillfort_list)
-        setSupportActionBar(toolbar)
-        init(toolbar, false)
+//        setSupportActionBar(toolbar)
+        super.init(toolbar, false)
         presenter = initPresenter(HillfortListPresenter(this)) as HillfortListPresenter
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager

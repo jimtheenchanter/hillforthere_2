@@ -1,4 +1,4 @@
-package ie.jim.hillfort.models
+package ie.jim.hillfort.models.json
 
 import android.content.Context
 import com.google.gson.Gson
@@ -7,6 +7,7 @@ import com.google.gson.reflect.TypeToken
 import ie.jim.hillfort.UserStore
 import org.jetbrains.anko.AnkoLogger
 import ie.jim.hillfort.helpers.*
+import ie.jim.hillfort.models.UserModel
 import java.util.*
 
 val JSON_FILE_user = "users.json"
@@ -59,13 +60,19 @@ class UserJSONStore : UserStore, AnkoLogger {
     }
 
     private fun serialize() {
-        val jsonString = gsonBuilder_user.toJson(users, listType_user)
+        val jsonString = gsonBuilder_user.toJson(users,
+            listType_user
+        )
         write(context, JSON_FILE_user, jsonString)
     }
 
     private fun deserialize() {
-        val jsonString = read(context, JSON_FILE_user)
-        users = Gson().fromJson(jsonString, listType_user)
+        val jsonString = read(context,
+            JSON_FILE_user
+        )
+        users = Gson().fromJson(jsonString,
+            listType_user
+        )
     }
 
 

@@ -35,13 +35,13 @@ class EditLocationView : BaseView(), GoogleMap.OnMarkerDragListener, GoogleMap.O
         return super.onCreateOptionsMenu(menu)
     }
 
-    override fun showLocation(latitude : Double, longitude : Double) {
-        lat.setText("%.6f".format(latitude))
-        lng.setText("%.6f".format(longitude))
-    }
+//    override fun showLocation(latitude : Double, longitude : Double) {
+//        .lat.setText("%.6f".format(latitude))
+//        hillfort.lng.setText("%.6f".format(longitude))
+//    }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when (item?.itemId) {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
             R.id.item_save -> {
                 presenter.doSave()
             }

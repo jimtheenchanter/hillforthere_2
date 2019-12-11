@@ -8,6 +8,7 @@ import android.view.MenuItem
 import ie.jim.hillfort.R
 import ie.jim.hillfort.helpers.readImageFromPath
 import ie.jim.hillfort.models.HillfortModel
+import ie.jim.hillfort.models.Location
 import ie.jim.hillfort.views.BaseView
 import kotlinx.android.synthetic.main.activity_hillfort.*
 //import kotlinx.android.synthetic.main.activity_hillfort.description
@@ -44,16 +45,17 @@ class HillfortView : BaseView(), AnkoLogger {
         hillfortName.setText(hillfort.title)
         description.setText(hillfort.description)
         hillfortImage.setImageBitmap(readImageFromPath(this, hillfort.image))
-        if (hillfort.image != null) {
+//        if (hillfort.image != null) {
             chooseImage.setText(R.string.change_image)
-        }
-        lat.setText("%.6f".format(hillfort.lat))
-        lng.setText("%.6f".format(hillfort.lng))
+//        }
+        this.showLocation(hillfort.location)
     }
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun showLocation(location: Location) {
+        lat.setText("%.6f".format(location.lat))
+        lng.setText("%.6f".format(location.lng))
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_hillfort, menu)

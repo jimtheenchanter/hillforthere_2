@@ -1,6 +1,7 @@
-package ie.jim.hillfort.models
+package ie.jim.hillfort.models.mem
 
-import ie.jim.hillfort.HillfortStore
+import ie.jim.hillfort.models.HillfortStore
+import ie.jim.hillfort.models.HillfortModel
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 
@@ -32,9 +33,7 @@ class HillfortMemStore : HillfortStore, AnkoLogger {
             foundHillfort.description = hillfort.description // update description
             foundHillfort.image = hillfort.image // update image
 //            foundHillfort.visited = hillfort.visited
-            foundHillfort.lat = hillfort.lat
-            foundHillfort.lng = hillfort.lng
-            foundHillfort.zoom = hillfort.zoom
+            foundHillfort.location = hillfort.location
             logAll()
         }
     }

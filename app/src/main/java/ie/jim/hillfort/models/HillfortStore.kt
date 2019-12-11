@@ -1,6 +1,4 @@
-package ie.jim.hillfort
-
-import ie.jim.hillfort.models.HillfortModel
+package ie.jim.hillfort.models
 
 interface HillfortStore {
     fun findAll(): List<HillfortModel>
