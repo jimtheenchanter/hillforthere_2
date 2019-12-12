@@ -78,4 +78,8 @@ class HillfortJSONStore : HillfortStore, AnkoLogger {
         return foundHillfort
     }
 
+    override fun clear() {
+        hillforts.clear()
+    }
+
 }
