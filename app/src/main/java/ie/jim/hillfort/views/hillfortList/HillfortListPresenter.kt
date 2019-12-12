@@ -1,5 +1,6 @@
 package ie.jim.hillfort.views.hillfortList
 
+import com.google.firebase.auth.FirebaseAuth
 import ie.jim.hillfort.models.HillfortModel
 import ie.jim.hillfort.views.BasePresenter
 import ie.jim.hillfort.views.BaseView
@@ -34,6 +35,7 @@ class HillfortListPresenter(view: BaseView) : BasePresenter(view){
     }
 
     fun doLogout() {
+        FirebaseAuth.getInstance().signOut()
         view?.navigateTo(VIEW.LOGIN)
     }
 }
