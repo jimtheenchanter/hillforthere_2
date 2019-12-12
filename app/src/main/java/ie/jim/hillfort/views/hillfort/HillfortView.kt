@@ -31,8 +31,10 @@ class HillfortView : BaseView(), AnkoLogger {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hillfort)
         super.init(toolbarAdd, true)
+
         info("Hillfort Activity initialized")
         presenter = initPresenter (HillfortPresenter(this)) as HillfortPresenter
+
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync {
             presenter.doConfigureMap(it)

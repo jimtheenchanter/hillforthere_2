@@ -66,20 +66,28 @@ class HillfortPresenter(view: BaseView) : BasePresenter(view) {
             locationService.requestLocationUpdates(locationRequest, locationCallback, null)
         }
     }
-        fun doAddOrSave(title: String, description: String) {
-            hillfort.title = title
-            hillfort.description = description
-            doAsync {
-                if (edit) {
-                    app.hillforts.update(hillfort)
-                } else {
-                    app.hillforts.create(hillfort)
-                }
-                uiThread {
-                    view?.finish()
-                }
+
+    override fun doRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+        if (isPermissionGranted(requestCode, grantResults)) {
+            doSetCurrentLocation()
+        } else {
+            locationUpdate(defaultLocation)
+        }
+    }
+    fun doAddOrSave(title: String, description: String) {
+        hillfort.title = title
+        hillfort.description = description
+        doAsync {
+            if (edit) {
+                app.hillforts.update(hillfort)
+            } else {
+                app.hillforts.create(hillfort)
+            }
+            uiThread {
+                view?.finish()
             }
         }
+    }
 
         fun doCancel() {
             view?.finish()
@@ -104,13 +112,7 @@ class HillfortPresenter(view: BaseView) : BasePresenter(view) {
         view?.navigateTo(VIEW.LOCATION, LOCATION_REQUEST, "location", Location(hillfort.location.lat, hillfort.location.lng, hillfort.location.zoom))
     }
 
-    override fun doRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
-        if (isPermissionGranted(requestCode, grantResults)) {
-            doSetCurrentLocation()
-        } else {
-            locationUpdate(defaultLocation)
-        }
-    }
+
 
     override fun doActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
             when (requestCode) {
@@ -143,9 +145,8 @@ class HillfortPresenter(view: BaseView) : BasePresenter(view) {
                 CameraUpdateFactory.newLatLngZoom(
                     LatLng(hillfort.location.lat, hillfort.location.lng),
                     hillfort.location.zoom
-                )
-            )
-            view?.showHillfort(hillfort)
+                ) )
+            view?.showLocation(hillfort.location)
         }
     }
 

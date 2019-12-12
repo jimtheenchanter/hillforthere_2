@@ -3,6 +3,7 @@ package ie.jim.hillfort.models.firebase
 import android.graphics.Bitmap
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import ie.jim.hillfort.helpers.readImageFromPath
 import ie.jim.hillfort.models.HillfortModel
@@ -47,7 +48,9 @@ class HillfortFireStore(val context: android.content.Context) : HillfortStore, A
         }
 
         db.child("users").child(userId).child("hillforts").child(hillfort.fbId).setValue(hillfort)
-
+        if ((hillfort.image.length) > 0 && (hillfort.image[0] != 'h')) {
+            updateImage(hillfort)
+        }
     }
 
     override fun delete(hillfort: HillfortModel) {
@@ -59,20 +62,6 @@ class HillfortFireStore(val context: android.content.Context) : HillfortStore, A
         hillforts.clear()
     }
 
-    fun fetchHillforts( hillfortsReady: () -> Unit) {
-        val valueEventListener = object : ValueEventListener {
-            override fun onCancelled(dataSnapshot: DatabaseError) {
-            }
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                dataSnapshot!!.children.mapNotNullTo(hillforts) { it.getValue<HillfortModel>(HillfortModel::class.java) }
-                hillfortsReady()
-            }
-        }
-        userId = FirebaseAuth.getInstance().currentUser!!.uid
-        db = FirebaseDatabase.getInstance().reference
-        hillforts.clear()
-        db.child("users").child(userId).child("hillforts").addListenerForSingleValueEvent(valueEventListener)
-    }
 
 
     fun updateImage(hillfort: HillfortModel) {
@@ -99,4 +88,21 @@ class HillfortFireStore(val context: android.content.Context) : HillfortStore, A
             }
         }
     }
+
+    fun fetchHillforts( hillfortsReady: () -> Unit) {
+        val valueEventListener = object : ValueEventListener {
+            override fun onCancelled(dataSnapshot: DatabaseError) {
+            }
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                dataSnapshot!!.children.mapNotNullTo(hillforts) { it.getValue<HillfortModel>(HillfortModel::class.java) }
+                hillfortsReady()
+            }
+        }
+        userId = FirebaseAuth.getInstance().currentUser!!.uid
+        db = FirebaseDatabase.getInstance().reference
+        st = FirebaseStorage.getInstance().reference
+        hillforts.clear()
+        db.child("users").child(userId).child("hillforts").addListenerForSingleValueEvent(valueEventListener)
+    }
+
 }
