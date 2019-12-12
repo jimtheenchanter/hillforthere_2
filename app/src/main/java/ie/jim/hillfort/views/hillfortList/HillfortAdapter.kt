@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import ie.jim.hillfort.R
 import ie.jim.hillfort.helpers.readImageFromPath
 import ie.jim.hillfort.models.HillfortModel
@@ -42,7 +43,8 @@ class HillfortAdapter constructor(private var hillforts: List<HillfortModel>,
         fun bind(hillfort: HillfortModel, listener: HillfortListener) {
             itemView.hillfortName.text = hillfort.title
             itemView.description.text = hillfort.description
-            itemView.imageIcon.setImageBitmap(readImageFromPath(itemView.context, hillfort.image))
+            Glide.with(itemView.context).load(hillfort.image).into(itemView.imageIcon);
+//            itemView.imageIcon.setImageBitmap(readImageFromPath(itemView.context, hillfort.image))
 //            itemView.latitude.text = hillfort.lat.toString()
 //            itemView.longitude.text = hillfort.lng.toString()
             itemView.setOnClickListener { listener.onHillfortClick(hillfort)}

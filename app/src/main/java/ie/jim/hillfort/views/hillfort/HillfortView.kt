@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.Menu
 import android.view.MenuItem
+import com.bumptech.glide.Glide
 import ie.jim.hillfort.R
 import ie.jim.hillfort.helpers.readImageFromPath
 import ie.jim.hillfort.models.HillfortModel
@@ -44,7 +45,8 @@ class HillfortView : BaseView(), AnkoLogger {
     override fun showHillfort(hillfort: HillfortModel) {
         hillfortName.setText(hillfort.title)
         description.setText(hillfort.description)
-        hillfortImage.setImageBitmap(readImageFromPath(this, hillfort.image))
+        Glide.with(this).load(hillfort.image).into(hillfortImage);
+//        hillfortImage.setImageBitmap(readImageFromPath(this, hillfort.image))
 //        if (hillfort.image != null) {
             chooseImage.setText(R.string.change_image)
 //        }

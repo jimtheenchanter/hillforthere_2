@@ -1,16 +1,22 @@
 package ie.jim.hillfort.models.firebase
 
+import android.graphics.Bitmap
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.google.firebase.storage.StorageReference
+import ie.jim.hillfort.helpers.readImageFromPath
 import ie.jim.hillfort.models.HillfortModel
 import ie.jim.hillfort.models.HillfortStore
 import org.jetbrains.anko.AnkoLogger
+import java.io.ByteArrayOutputStream
+import java.io.File
 
 class HillfortFireStore(val context: android.content.Context) : HillfortStore, AnkoLogger {
 
     val hillforts = ArrayList<HillfortModel>()
     lateinit var userId: String
     lateinit var db: DatabaseReference
+    lateinit var st: StorageReference
 
     override fun findAll(): List<HillfortModel> {
         return hillforts
@@ -27,6 +33,7 @@ class HillfortFireStore(val context: android.content.Context) : HillfortStore, A
             hillfort.fbId = key
             hillforts.add(hillfort)
             db.child("users").child(userId).child("hillforts").child(key).setValue(hillfort)
+            updateImage(hillfort)
         }
     }
 
@@ -64,6 +71,32 @@ class HillfortFireStore(val context: android.content.Context) : HillfortStore, A
         userId = FirebaseAuth.getInstance().currentUser!!.uid
         db = FirebaseDatabase.getInstance().reference
         hillforts.clear()
-        db.child("users").child(userId).child("placemarks").addListenerForSingleValueEvent(valueEventListener)
+        db.child("users").child(userId).child("hillforts").addListenerForSingleValueEvent(valueEventListener)
+    }
+
+
+    fun updateImage(hillfort: HillfortModel) {
+        if (hillfort.image != "") {
+            val fileName = File(hillfort.image)
+            val imageName = fileName.getName()
+
+            var imageRef = st.child(userId + '/' + imageName)
+            val baos = ByteArrayOutputStream()
+            val bitmap = readImageFromPath(context, hillfort.image)
+
+            bitmap?.let {
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+                val data = baos.toByteArray()
+                val uploadTask = imageRef.putBytes(data)
+                uploadTask.addOnFailureListener {
+                    println(it.message)
+                }.addOnSuccessListener { taskSnapshot ->
+                    taskSnapshot.metadata!!.reference!!.downloadUrl.addOnSuccessListener {
+                       hillfort.image = it.toString()
+                        db.child("users").child(userId).child("hillforts").child(hillfort.fbId).setValue(hillfort)
+                    }
+                }
+            }
+        }
     }
 }
