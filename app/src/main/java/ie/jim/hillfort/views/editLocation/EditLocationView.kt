@@ -6,10 +6,9 @@ import android.view.MenuItem
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.Marker
+import kotlinx.android.synthetic.main.activity_edit_location.*
 import ie.jim.hillfort.R
 import ie.jim.hillfort.views.BaseView
-import kotlinx.android.synthetic.main.activity_edit_location.*
-
 
 class EditLocationView : BaseView(), GoogleMap.OnMarkerDragListener, GoogleMap.OnMarkerClickListener {
 
@@ -35,13 +34,8 @@ class EditLocationView : BaseView(), GoogleMap.OnMarkerDragListener, GoogleMap.O
         return super.onCreateOptionsMenu(menu)
     }
 
-//    override fun showLocation(latitude : Double, longitude : Double) {
-//        .lat.setText("%.6f".format(latitude))
-//        hillfort.lng.setText("%.6f".format(longitude))
-//    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
             R.id.item_save -> {
                 presenter.doSave()
             }
