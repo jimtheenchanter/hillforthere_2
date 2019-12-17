@@ -10,6 +10,7 @@ import ie.jim.hillfort.helpers.readImageFromPath
 import ie.jim.hillfort.models.HillfortModel
 import kotlinx.android.synthetic.main.activity_hillfort.view.*
 import kotlinx.android.synthetic.main.card_hillfort.view.*
+
 import kotlinx.android.synthetic.main.card_hillfort.view.description
 import kotlinx.android.synthetic.main.card_hillfort.view.hillfortName
 

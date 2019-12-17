@@ -7,7 +7,7 @@
     <application
         android:name=".main.MainApp"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/hillfort_icon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -23,17 +23,15 @@
             </intent-filter>
         </activity>
 
-
         <activity android:name=".views.hillfortList.HillfortListView"
             android:label="@string/title_activity_hillfort_list"
             android:launchMode="singleTop">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".views.login.LoginView" />
         </activity>
 
-        <activity android:name=".views.hillfort.HillfortView"
-            android:label="@string/title_activity_hillfort">
+        <activity
+            android:name=".views.hillfort.HillfortView"
+            android:label="@string/title_activity_hillfort"
+            android:launchMode="singleTop">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".views.hillfortList.HillfortListView" />
@@ -53,7 +51,7 @@
             android:launchMode="singleTop">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".views.hillfortList.HillfortListView" />
+                android:value=".views.hillfort.HillfortView" />
         </activity>
 
         <meta-data

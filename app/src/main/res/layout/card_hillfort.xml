@@ -65,5 +65,12 @@
             android:layout_toEndOf="@+id/longitude"
             android:textSize="12sp" />
 
+
+        <ImageView
+            android:id="@+id/favourite"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            />
+
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

@@ -18,7 +18,7 @@ class HillfortListView : BaseView(), HillfortListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hillfort_list)
 //        setSupportActionBar(toolbar)
-        super.init(toolbar, false)
+        super.init(toolbar, false);
         presenter = initPresenter(HillfortListPresenter(this)) as HillfortListPresenter
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
@@ -40,7 +40,7 @@ class HillfortListView : BaseView(), HillfortListener {
         when (item.itemId) {
             R.id.item_add -> presenter.doAddHillfort()
             R.id.item_map -> presenter.doShowHillfortsMap()
-            R.id.item_logout ->presenter.doLogout()
+            R.id.item_logout -> presenter.doLogout()
         }
         return super.onOptionsItemSelected(item)
     }

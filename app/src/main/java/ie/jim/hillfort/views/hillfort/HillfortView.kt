@@ -5,12 +5,14 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.RatingBar
 import com.bumptech.glide.Glide
 import ie.jim.hillfort.R
 import ie.jim.hillfort.helpers.readImageFromPath
 import ie.jim.hillfort.models.HillfortModel
 import ie.jim.hillfort.models.Location
 import ie.jim.hillfort.views.BaseView
+import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.activity_hillfort.*
 //import kotlinx.android.synthetic.main.activity_hillfort.description
 //import kotlinx.android.synthetic.main.card_hillfort.*
@@ -31,7 +33,7 @@ class HillfortView : BaseView(), AnkoLogger {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hillfort)
         super.init(toolbarAdd, true)
-
+//          addListenerOnRatingBar()
         info("Hillfort Activity initialized")
         presenter = initPresenter (HillfortPresenter(this)) as HillfortPresenter
 
@@ -40,7 +42,9 @@ class HillfortView : BaseView(), AnkoLogger {
             presenter.doConfigureMap(it)
             it.setOnMapClickListener { presenter.doSetLocation() }
         }
-        chooseImage.setOnClickListener { presenter.doSelectImage() }
+        chooseImage.setOnClickListener {  presenter.doSelectImage() }
+
+
 //        hillfortLocation.setOnClickListener { presenter.doSetLocation() }
     }
 
@@ -49,9 +53,9 @@ class HillfortView : BaseView(), AnkoLogger {
         description.setText(hillfort.description)
         Glide.with(this).load(hillfort.image).into(hillfortImage);
 //        hillfortImage.setImageBitmap(readImageFromPath(this, hillfort.image))
-//        if (hillfort.image != null) {
+       if (hillfort.image != null) {
             chooseImage.setText(R.string.change_image)
-//        }
+       }
         this.showLocation(hillfort.location)
     }
 
@@ -63,7 +67,7 @@ class HillfortView : BaseView(), AnkoLogger {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_hillfort, menu)
-       if (presenter.edit && menu != null) menu.getItem(1).setVisible(true)
+//       if (presenter.edit && menu != null) menu.getItem(1).setVisible(true)
         return super.onCreateOptionsMenu(menu)
     }
 

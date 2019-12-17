@@ -14,13 +14,11 @@ class MainApp : Application(), AnkoLogger {
     //    val hillforts = ArrayList<HillfortModel>()
     lateinit var hillforts: HillfortStore
     //    var users = ArrayList<UserModel>()
-    lateinit var users: UserStore
+//    lateinit var users: UserStore
 
     override fun onCreate() {
         super.onCreate()
-
         hillforts = HillfortFireStore(applicationContext)
-
 
 //        hillforts = HillfortStoreRoom(applicationContext)
 ////        hillforts = HillfortJSONStore(applicationContext)
