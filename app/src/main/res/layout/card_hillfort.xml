@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="8dp"
@@ -8,70 +10,86 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:padding="16dp">
 
-        <ImageView
-            android:id="@+id/imageIcon"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginEnd="16dp"
-            android:contentDescription="@string/change_image" />
 
-        <TextView
-            android:id="@+id/hillfortName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_toEndOf="@+id/imageIcon"
-            android:textSize="30sp" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="400dp"
+            android:layout_height="132dp">
 
-        <TextView
-            android:id="@+id/description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/hillfortName"
-            android:layout_toEndOf="@+id/imageIcon"/>
+            <ImageView
+                android:id="@+id/imageIcon"
+                android:layout_width="90dp"
+                android:layout_height="81dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/change_image"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="182dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/hillfortName" />
 
-        <ImageView
-            android:id="@+id/location"
-            android:src="@mipmap/ic_menu_mylocation"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
-            android:layout_toEndOf="@+id/imageIcon"
-            android:layout_below="@+id/description"
-            android:layout_toStartOf="@+id/longitude"
-            android:contentDescription="@string/change_image" />
+            <ImageView
+                android:id="@+id/favourite"
+                android:layout_width="26dp"
+                android:layout_height="38dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:contentDescription="@string/favourite"
+                android:src="@drawable/ic_favorite_border_black_24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/hillfortName"
+                app:layout_constraintTop_toTopOf="parent" />
 
+            <ImageView
+                android:id="@+id/location"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="52dp"
+                android:contentDescription="@string/change_image"
+                android:src="@mipmap/ic_menu_mylocation"
+                app:layout_constraintStart_toEndOf="@+id/description"
+                app:layout_constraintTop_toBottomOf="@+id/favourite" />
 
-        <TextView
-            android:id="@+id/longitude"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/description"
-            android:layout_toEndOf="@+id/imageIcon"
-            android:contentDescription="@string/titleLongitude"
-            android:textSize="12sp" />
+            <TextView
+                android:id="@+id/longitude"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:contentDescription="@string/titleLongitude"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/latitude" />
 
+            <TextView
+                android:id="@+id/latitude"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="108dp"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toStartOf="@+id/description"
+                app:layout_constraintTop_toBottomOf="@+id/imageIcon" />
 
-        <TextView
-            android:id="@+id/latitude"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/description"
-            android:layout_toEndOf="@+id/longitude"
-            android:textSize="12sp" />
+            <TextView
+                android:id="@+id/hillfortName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="16dp"
+                android:textSize="30sp"
+                app:layout_constraintStart_toEndOf="@+id/imageIcon"
+                app:layout_constraintTop_toTopOf="parent" />
 
-
-        <ImageView
-            android:id="@+id/favourite"
-            android:src="@drawable/ic_favorite_border_black_24dp"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

@@ -28,6 +28,7 @@ class HillfortMapPresenter(view: BaseView) : BasePresenter(view) {
         val tag = marker.tag as Long
         doAsync {
             val hillfort = marker.tag as HillfortModel
+//            val hillfort = app.hillforts.findById(tag)
             uiThread {
                 if (hillfort != null) view?.showHillfort(hillfort)
             }
