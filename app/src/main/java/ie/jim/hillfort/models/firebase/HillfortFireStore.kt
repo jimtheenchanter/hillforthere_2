@@ -45,7 +45,7 @@ class HillfortFireStore(val context: android.content.Context) : HillfortStore, A
             foundHillfort.description = hillfort.description
             foundHillfort.image = hillfort.image
             foundHillfort.location = hillfort.location
-//            foundHillfort.favourite = hillfort.favourite
+            foundHillfort.favourite = hillfort.favourite
 //            foundHillfort.rating = hillfort.rating
         }
 
@@ -65,6 +65,7 @@ class HillfortFireStore(val context: android.content.Context) : HillfortStore, A
     }
 
     fun updateImage(hillfort: HillfortModel) {
+
         if (hillfort.image != "") {
             val fileName = File(hillfort.image)
             val imageName = fileName.getName()

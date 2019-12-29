@@ -3,14 +3,16 @@ package ie.jim.hillfort.views.hillfortList
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
+import androidx.annotation.NonNull
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import ie.jim.hillfort.R
 import ie.jim.hillfort.models.HillfortModel
 import ie.jim.hillfort.views.BaseView
 import kotlinx.android.synthetic.main.activity_hillfort_list.*
 
 class HillfortListView : BaseView(), HillfortListener {
-
 
     lateinit var presenter: HillfortListPresenter
 
@@ -23,6 +25,7 @@ class HillfortListView : BaseView(), HillfortListener {
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
         presenter.loadHillforts()
+
 
     }
 

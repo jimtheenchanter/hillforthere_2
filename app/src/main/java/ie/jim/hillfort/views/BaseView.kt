@@ -24,7 +24,7 @@ enum class VIEW {
 }
 
 open abstract class BaseView() : AppCompatActivity(), AnkoLogger {
-
+// declare the base presenter
     var basePresenter: BasePresenter? = null
 
     fun navigateTo(view: VIEW, code: Int = 0, key: String = "", value: Parcelable? = null) {
@@ -50,7 +50,7 @@ open abstract class BaseView() : AppCompatActivity(), AnkoLogger {
     fun init(toolbar: Toolbar, upEnabled: Boolean) {
         toolbar.title = title
         setSupportActionBar(toolbar)
-
+// find the users email and present it in the toolbar
         val user = FirebaseAuth.getInstance().currentUser
         if (user != null) {
             toolbar.title = "${title}: ${user.email}"

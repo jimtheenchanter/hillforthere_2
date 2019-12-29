@@ -14,12 +14,11 @@ import com.google.android.gms.maps.model.MarkerOptions
 import ie.jim.hillfort.helpers.checkLocationPermissions
 import ie.jim.hillfort.helpers.createDefaultLocationRequest
 import ie.jim.hillfort.helpers.isPermissionGranted
-
 import ie.jim.hillfort.helpers.showImagePicker
 import ie.jim.hillfort.models.Location
 import ie.jim.hillfort.models.HillfortModel
 import ie.jim.hillfort.views.*
-
+import kotlinx.android.synthetic.main.activity_hillfort.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 
@@ -74,9 +73,12 @@ class HillfortPresenter(view: BaseView) : BasePresenter(view) {
             locationUpdate(defaultLocation)
         }
     }
-    fun doAddOrSave(title: String, description: String) {
+//    fun doAddOrSave(title: String, description: String, favourite: Boolean) {
+        fun doAddOrSave(title: String, description: String, favourite: Boolean) {
         hillfort.title = title
+
         hillfort.description = description
+        hillfort.favourite = favourite
         doAsync {
             if (edit) {
                 app.hillforts.update(hillfort)
@@ -94,7 +96,7 @@ class HillfortPresenter(view: BaseView) : BasePresenter(view) {
         }
 
         fun doDelete() {
-            doAsync {
+                doAsync {
                 app.hillforts.delete(hillfort)
                 uiThread {
                     view?.finish()
@@ -103,15 +105,25 @@ class HillfortPresenter(view: BaseView) : BasePresenter(view) {
         }
 
         fun doSelectImage() {
+//            if (edit) {
+//                app.hillforts.update(hillfort)
+//            } else {
+//                app.hillforts.create(hillfort)
+//            }
+//            doAddOrSave(hillfort.title, hillfort.description)
             view?.let {
                 showImagePicker(view!!, IMAGE_REQUEST)
             }
         }
+// if favourite is clicked then boolean is set to true
+    fun doFavourite() {
+        hillfort.favourite = true
+    }
+
 
     fun doSetLocation() {
         view?.navigateTo(VIEW.LOCATION, LOCATION_REQUEST, "location", Location(hillfort.location.lat, hillfort.location.lng, hillfort.location.zoom))
     }
-
 
 
     override fun doActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
@@ -135,7 +147,7 @@ class HillfortPresenter(view: BaseView) : BasePresenter(view) {
 
         fun locationUpdate(location: Location) {
             hillfort.location = location
-            hillfort.location.zoom = 15f
+            hillfort.location.zoom = 10f
             map?.clear()
             map?.uiSettings?.setZoomControlsEnabled(true)
             val options =

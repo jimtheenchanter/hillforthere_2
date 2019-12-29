@@ -9,11 +9,13 @@ import ie.jim.hillfort.R
 import ie.jim.hillfort.helpers.readImageFromPath
 import ie.jim.hillfort.models.HillfortModel
 import kotlinx.android.synthetic.main.activity_hillfort.view.*
+// import kotlinx.android.synthetic.main.activity_hillfort.view.favourite
+import kotlinx.android.synthetic.main.card_hillfort.view.favourite
 import kotlinx.android.synthetic.main.card_hillfort.view.*
-
 import kotlinx.android.synthetic.main.card_hillfort.view.description
 import kotlinx.android.synthetic.main.card_hillfort.view.hillfortName
 
+//import kotlinx.android.synthetic.main.card_hillfort.view.favourite
 
 // introduce a listener interface to allow interaction.
 interface HillfortListener {
@@ -44,6 +46,14 @@ class HillfortAdapter constructor(private var hillforts: List<HillfortModel>,
         fun bind(hillfort: HillfortModel, listener: HillfortListener) {
             itemView.hillfortName.text = hillfort.title
             itemView.description.text = hillfort.description
+
+            if (hillfort.favourite != false)
+            {
+                itemView.favourite.setImageResource(R.drawable.ic_favorite_black_24dp)
+            } else {
+                itemView.favourite.setImageResource(R.drawable.ic_favorite_border_black_24dp)
+            }
+//            itemView.favourite.isChecked = hillfort.favourite
             Glide.with(itemView.context).load(hillfort.image).into(itemView.imageIcon);
 //            itemView.imageIcon.setImageBitmap(readImageFromPath(itemView.context, hillfort.image))
 //            itemView.latitude.text = hillfort.lat.toString()
@@ -53,3 +63,4 @@ class HillfortAdapter constructor(private var hillforts: List<HillfortModel>,
             }
     }
 }
+
