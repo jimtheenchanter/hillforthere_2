@@ -44,6 +44,7 @@ View/ Presenter Model  implemented.
 # Sources
 - Git Branching:  
 https://nvie.com/posts/a-successful-git-branching-model/
+https://stackabuse.com/git-merge-branch-into-master/
 - Git Workflow: 
 https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
 - Android JetPack Components:    

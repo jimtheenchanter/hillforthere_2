@@ -161,7 +161,7 @@
                 android:id="@+id/favouriteLabel"
                 android:layout_width="82dp"
                 android:layout_height="43dp"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="2dp"
                 android:text="@string/favourite"
                 app:layout_constraintStart_toEndOf="@+id/favourite"
                 app:layout_constraintTop_toTopOf="@id/favourite" />

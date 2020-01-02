@@ -46,7 +46,7 @@ class HillfortFireStore(val context: android.content.Context) : HillfortStore, A
             foundHillfort.image = hillfort.image
             foundHillfort.location = hillfort.location
             foundHillfort.favourite = hillfort.favourite
-//            foundHillfort.rating = hillfort.rating
+            foundHillfort.rating = hillfort.rating
         }
 
         db.child("users").child(userId).child("hillforts").child(hillfort.fbId).setValue(hillfort)

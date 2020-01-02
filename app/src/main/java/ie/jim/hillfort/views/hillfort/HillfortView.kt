@@ -91,7 +91,7 @@ class HillfortView : BaseView(), AnkoLogger {
                     toast(R.string.hint_hillfortName)
                 } else {
 //                    presenter.doAddOrSave(hillfortName.text.toString(), description.text.toString(), favourite.isChecked)
-                    presenter.doAddOrSave(hillfortName.text.toString(), description.text.toString(),  favourite.isChecked)
+                    presenter.doAddOrSave(hillfortName.text.toString(), description.text.toString(),  favourite.isChecked, ratingBar.rating)
                 }
             }
         }

@@ -24,7 +24,9 @@
                 android:layout_height="81dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:contentDescription="@string/change_image"
+                android:contentDescription="@string/hillfort_image_placeholder"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.028"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,9 +34,41 @@
                 android:id="@+id/description"
                 android:layout_width="182dp"
                 android:layout_height="50dp"
+                android:layout_marginTop="2dp"
                 android:layout_marginBottom="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/hillfortName" />
+                app:layout_constraintStart_toStartOf="@+id/hillfortName"
+                app:layout_constraintTop_toBottomOf="@+id/hillfortName" />
+
+            <!--            <ImageView-->
+            <!--                android:id="@+id/location"-->
+            <!--                android:layout_width="16dp"-->
+            <!--                android:layout_height="16dp"-->
+            <!--                android:layout_marginStart="60dp"-->
+            <!--                android:layout_marginTop="52dp"-->
+            <!--                android:contentDescription="@string/change_image"-->
+            <!--                android:src="@mipmap/ic_menu_mylocation"-->
+            <!--                app:layout_constraintStart_toEndOf="@+id/description"-->
+            <!--                app:layout_constraintTop_toBottomOf="@+id/favourite" />-->
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/longitude"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginStart="16dp"-->
+            <!--                android:contentDescription="@string/titleLongitude"-->
+            <!--                android:textSize="12sp"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toBottomOf="@+id/latitude" />-->
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/latitude"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginEnd="108dp"-->
+            <!--                android:textSize="12sp"-->
+            <!--                app:layout_constraintEnd_toStartOf="@+id/description"-->
+            <!--                app:layout_constraintTop_toBottomOf="@+id/imageIcon" />-->
 
             <ImageView
                 android:id="@+id/favourite"
@@ -44,50 +78,40 @@
                 android:layout_marginEnd="16dp"
                 android:contentDescription="@string/favourite"
                 android:src="@drawable/ic_favorite_border_black_24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/hillfortName"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/location"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:layout_marginStart="60dp"
-                android:layout_marginTop="52dp"
-                android:contentDescription="@string/change_image"
-                android:src="@mipmap/ic_menu_mylocation"
+                app:layout_constraintHorizontal_bias="0.666"
                 app:layout_constraintStart_toEndOf="@+id/description"
-                app:layout_constraintTop_toBottomOf="@+id/favourite" />
-
-            <TextView
-                android:id="@+id/longitude"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:contentDescription="@string/titleLongitude"
-                android:textSize="12sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/latitude" />
-
-            <TextView
-                android:id="@+id/latitude"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="108dp"
-                android:textSize="12sp"
-                app:layout_constraintEnd_toStartOf="@+id/description"
-                app:layout_constraintTop_toBottomOf="@+id/imageIcon" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/hillfortName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="16dp"
-                android:textSize="30sp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageIcon"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <RatingBar
+                android:id="@+id/ratingBar2"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:stepSize="0.1"
+                android:isIndicator="true"
+                android:max="5"
+                android:maxHeight="22dip"
+                android:minHeight="22dip"
+                android:scaleX="0.5"
+                android:scaleY="0.5"
+                android:numStars="5"
+                android:rating="1"
+                app:layout_constraintEnd_toEndOf="@+id/imageIcon"
+                app:layout_constraintTop_toBottomOf="@+id/imageIcon" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

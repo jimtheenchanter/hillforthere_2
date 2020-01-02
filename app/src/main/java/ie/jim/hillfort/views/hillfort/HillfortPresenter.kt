@@ -74,11 +74,12 @@ class HillfortPresenter(view: BaseView) : BasePresenter(view) {
         }
     }
 //    fun doAddOrSave(title: String, description: String, favourite: Boolean) {
-        fun doAddOrSave(title: String, description: String, favourite: Boolean) {
+        fun doAddOrSave(title: String, description: String, favourite: Boolean, rating: Float) {
         hillfort.title = title
 
         hillfort.description = description
         hillfort.favourite = favourite
+        hillfort.rating = rating
         doAsync {
             if (edit) {
                 app.hillforts.update(hillfort)
