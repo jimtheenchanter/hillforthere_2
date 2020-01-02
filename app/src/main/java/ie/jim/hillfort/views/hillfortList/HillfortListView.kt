@@ -3,10 +3,7 @@ package ie.jim.hillfort.views.hillfortList
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
-import androidx.annotation.NonNull
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import ie.jim.hillfort.R
 import ie.jim.hillfort.models.HillfortModel
 import ie.jim.hillfort.views.BaseView
@@ -19,13 +16,12 @@ class HillfortListView : BaseView(), HillfortListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hillfort_list)
-//        setSupportActionBar(toolbar)
-        super.init(toolbar, false);
+       //       setSupportActionBar(toolbar)
+        super.init(toolbar, false)
         presenter = initPresenter(HillfortListPresenter(this)) as HillfortListPresenter
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
         presenter.loadHillforts()
-
 
     }
 
@@ -36,6 +32,7 @@ class HillfortListView : BaseView(), HillfortListener {
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
+
         return super.onCreateOptionsMenu(menu)
     }
 

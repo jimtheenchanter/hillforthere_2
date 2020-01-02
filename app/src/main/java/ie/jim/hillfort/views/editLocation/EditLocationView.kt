@@ -21,6 +21,12 @@ class EditLocationView : BaseView(), GoogleMap.OnMarkerDragListener, GoogleMap.O
 
         presenter = initPresenter(EditLocationPresenter(this)) as EditLocationPresenter
 
+
+        fun onCreateOptionsMenu(menu: Menu): Boolean {
+            menuInflater.inflate(R.menu.menu_edit_location, menu)
+            return super.onCreateOptionsMenu(menu)
+        }
+
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync {
             it.setOnMarkerDragListener(this)
@@ -29,10 +35,6 @@ class EditLocationView : BaseView(), GoogleMap.OnMarkerDragListener, GoogleMap.O
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_edit_location, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {

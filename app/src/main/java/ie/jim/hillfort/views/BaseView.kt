@@ -2,10 +2,12 @@ package ie.jim.hillfort.views
 
 import android.content.Intent
 import android.os.Parcelable
+import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 
 import com.google.firebase.auth.FirebaseAuth
+import ie.jim.hillfort.R
 import org.jetbrains.anko.AnkoLogger
 
 import ie.jim.hillfort.models.HillfortModel
@@ -50,6 +52,11 @@ open abstract class BaseView() : AppCompatActivity(), AnkoLogger {
     fun init(toolbar: Toolbar, upEnabled: Boolean) {
         toolbar.title = title
         setSupportActionBar(toolbar)
+
+
+
+
+
 // find the users email and present it in the toolbar
         val user = FirebaseAuth.getInstance().currentUser
         if (user != null) {
@@ -57,6 +64,14 @@ open abstract class BaseView() : AppCompatActivity(), AnkoLogger {
         }
         supportActionBar?.setDisplayHomeAsUpEnabled(upEnabled)
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(
+            R.menu.bottom_nav_menu, menu)
+
+        return super.onCreateOptionsMenu(menu)
+    }
+
 
     override fun onDestroy() {
         basePresenter?.onDestroy()

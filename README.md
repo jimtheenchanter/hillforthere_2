@@ -62,6 +62,10 @@ https://code.tutsplus.com/tutorials/how-to-code-a-bottom-navigation-bar-for-an-a
 https://en.wikipedia.org/wiki/Separation_of_concerns
 - Checkbox  
 https://developer.android.com/guide/topics/ui/controls/checkbox
+- Search
+https://developer.android.com/guide/topics/search/search-dialog
+
+
 /* Color Theme Swatches in Hex */
 .Campfire-1-hex { color: #588C7E; }
 .Campfire-2-hex { color: #F2E394; }
