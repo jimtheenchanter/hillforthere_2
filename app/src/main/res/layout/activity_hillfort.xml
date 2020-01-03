@@ -104,6 +104,7 @@
                 android:layout_marginStart="16dp"
                 android:contentDescription="@string/favourite"
                 android:paddingStart="4dp"
+                android:paddingEnd="2dp"
                 android:paddingTop="8dp"
                 android:text="@string/favourite"
                 android:onClick="onCheckboxClicked"
