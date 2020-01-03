@@ -29,13 +29,15 @@
     <string name="hillfort_image_placeholder">Hillfort Image</string>
     <string name="hillfort_description_placeholder">Description</string>
     <string name="uploadImage">uploadimage</string>
-    <string name="todo">TODO</string>
+    <string name="todo">To Do</string>
     <string name="_00_000000">00.000000</string>
     <string name="image">image</string>
     <string name="title_activity_hillfort_list">Hillforts</string>
     <string name="title_activity_hillfort">Hillfort</string>
     <string name="title_activity_edit_location">Hillfort</string>
     <string name="title_activity_login"> Signup/Login to Hillfort</string>
+    <string name="email_label"> Email</string>
+    <string name="password_label">Password</string>
     <string name="button_signup"> Sign up </string>
     <string name="button_login"> Log in </string>
     <string name="favourite"> Love this Hillfort!</string>
@@ -43,6 +45,7 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="email">Email</string>
 
 
 </resources>

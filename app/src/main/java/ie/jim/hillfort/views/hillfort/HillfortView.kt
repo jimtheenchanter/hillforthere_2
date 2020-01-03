@@ -15,10 +15,15 @@ import ie.jim.hillfort.models.HillfortModel
 import ie.jim.hillfort.models.Location
 import ie.jim.hillfort.views.BaseView
 import kotlinx.android.synthetic.*
+import kotlinx.android.synthetic.main.activity_edit_location.*
 import kotlinx.android.synthetic.main.activity_hillfort.*
 import kotlinx.android.synthetic.main.activity_hillfort.description
 import kotlinx.android.synthetic.main.activity_hillfort.favourite
 import kotlinx.android.synthetic.main.activity_hillfort.hillfortName
+import kotlinx.android.synthetic.main.activity_hillfort.lat
+import kotlinx.android.synthetic.main.activity_hillfort.lng
+import kotlinx.android.synthetic.main.activity_hillfort.mapView
+import kotlinx.android.synthetic.main.activity_hillfort.view.*
 import kotlinx.android.synthetic.main.card_hillfort.*
 //import kotlinx.android.synthetic.main.activity_hillfort.description
 //import kotlinx.android.synthetic.main.card_hillfort.*
@@ -58,7 +63,6 @@ class HillfortView : BaseView(), AnkoLogger {
         if (hillfort.favourite) {
             favourite.isChecked()
         }
-//        favourite.isChecked
         Glide.with(this).load(hillfort.image).into(hillfortImage);
 //        hillfortImage.setImageBitmap(readImageFromPath(this, hillfort.image))
        if (hillfort.image != null) {
@@ -90,8 +94,7 @@ class HillfortView : BaseView(), AnkoLogger {
                 if (hillfortName.text.toString().isEmpty()) {
                     toast(R.string.hint_hillfortName)
                 } else {
-//                    presenter.doAddOrSave(hillfortName.text.toString(), description.text.toString(), favourite.isChecked)
-                    presenter.doAddOrSave(hillfortName.text.toString(), description.text.toString(),  favourite.isChecked, ratingBar.rating)
+                    presenter.doAddOrSave(hillfortName.text.toString(), description.text.toString(), favourite.isChecked, ratingBar.rating)
                 }
             }
         }

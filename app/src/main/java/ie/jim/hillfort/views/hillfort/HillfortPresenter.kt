@@ -40,7 +40,7 @@ class HillfortPresenter(view: BaseView) : BasePresenter(view) {
             if (checkLocationPermissions(view)) {
                 doSetCurrentLocation()
             }
-             }
+          }
     }
 
     @SuppressLint("MissingPermission")
@@ -73,13 +73,37 @@ class HillfortPresenter(view: BaseView) : BasePresenter(view) {
             locationUpdate(defaultLocation)
         }
     }
-//    fun doAddOrSave(title: String, description: String, favourite: Boolean) {
-        fun doAddOrSave(title: String, description: String, favourite: Boolean, rating: Float) {
-        hillfort.title = title
 
+
+    fun doConfigureMap(m: GoogleMap) {
+        map = m
+        locationUpdate(hillfort.location)
+    }
+
+    fun locationUpdate(location: Location) {
+        hillfort.location = location
+        hillfort.location.zoom = 15f
+        map?.clear()
+//        map?.uiSettings?.setZoomControlsEnabled(true)
+        val options =
+            MarkerOptions().title(hillfort.title).position(LatLng(hillfort.location.lat, hillfort.location.lng))
+        map?.addMarker(options)
+        map?.moveCamera(
+            CameraUpdateFactory.newLatLngZoom(
+                LatLng(hillfort.location.lat, hillfort.location.lng),
+                hillfort.location.zoom
+            ) )
+        view?.showLocation(hillfort.location)
+    }
+
+//    fun doAddOrSave(title: String, description: String, favourite: Boolean) {
+        fun doAddOrSave(title: String, description: String ,favourite: Boolean, rating: Float) {
+        hillfort.title = title
         hillfort.description = description
         hillfort.favourite = favourite
         hillfort.rating = rating
+
+
         doAsync {
             if (edit) {
                 app.hillforts.update(hillfort)
@@ -141,26 +165,7 @@ class HillfortPresenter(view: BaseView) : BasePresenter(view) {
             }
         }
 
-        fun doConfigureMap(m: GoogleMap) {
-            map = m
-            locationUpdate(hillfort.location)
-        }
 
-        fun locationUpdate(location: Location) {
-            hillfort.location = location
-            hillfort.location.zoom = 10f
-            map?.clear()
-            map?.uiSettings?.setZoomControlsEnabled(true)
-            val options =
-                MarkerOptions().title(hillfort.title).position(LatLng(hillfort.location.lat, hillfort.location.lng))
-            map?.addMarker(options)
-            map?.moveCamera(
-                CameraUpdateFactory.newLatLngZoom(
-                    LatLng(hillfort.location.lat, hillfort.location.lng),
-                    hillfort.location.zoom
-                ) )
-            view?.showLocation(hillfort.location)
-        }
     }
 
 

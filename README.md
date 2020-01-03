@@ -64,6 +64,8 @@ https://en.wikipedia.org/wiki/Separation_of_concerns
 https://developer.android.com/guide/topics/ui/controls/checkbox
 - Search
 https://developer.android.com/guide/topics/search/search-dialog
+- Buttons
+https://developer.android.com/guide/topics/ui/controls/button
 
 
 

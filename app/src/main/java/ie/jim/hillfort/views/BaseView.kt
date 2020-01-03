@@ -54,9 +54,6 @@ open abstract class BaseView() : AppCompatActivity(), AnkoLogger {
         setSupportActionBar(toolbar)
 
 
-
-
-
 // find the users email and present it in the toolbar
         val user = FirebaseAuth.getInstance().currentUser
         if (user != null) {
@@ -65,12 +62,13 @@ open abstract class BaseView() : AppCompatActivity(), AnkoLogger {
         supportActionBar?.setDisplayHomeAsUpEnabled(upEnabled)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(
-            R.menu.bottom_nav_menu, menu)
-
-        return super.onCreateOptionsMenu(menu)
-    }
+// attempt to i mplement bottom_nav
+//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+//        menuInflater.inflate(
+//            R.menu.bottom_nav_menu, menu)
+//
+//        return super.onCreateOptionsMenu(menu)
+//    }
 
 
     override fun onDestroy() {
