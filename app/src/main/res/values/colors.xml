@@ -3,4 +3,12 @@
     <color name="colorPrimary">#FFC107</color>
     <color name="colorPrimaryDark">#FFA000</color>
     <color name="colorAccent">#212121</color>
+
+    <color name="campfire1">#588C7E</color>
+    <color name="campfire2">#F2E394</color>
+    <color name="campfire3">#F2AE72</color>
+
+    <color name="campfire4">#D96459</color>
+    <color name="campfire5">#8C4646</color>
+
 </resources>

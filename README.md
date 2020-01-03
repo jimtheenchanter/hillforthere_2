@@ -66,27 +66,6 @@ https://developer.android.com/guide/topics/ui/controls/checkbox
 https://developer.android.com/guide/topics/search/search-dialog
 
 
-/* Color Theme Swatches in Hex */
-.Campfire-1-hex { color: #588C7E; }
-.Campfire-2-hex { color: #F2E394; }
-.Campfire-3-hex { color: #F2AE72; }
-.Campfire-4-hex { color: #D96459; }
-.Campfire-5-hex { color: #8C4646; }
-
-/* Color Theme Swatches in RGBA */
-.Campfire-1-rgba { color: rgba(87, 140, 126, 1); }
-.Campfire-2-rgba { color: rgba(242, 226, 147, 1); }
-.Campfire-3-rgba { color: rgba(242, 174, 114, 1); }
-.Campfire-4-rgba { color: rgba(216, 100, 89, 1); }
-.Campfire-5-rgba { color: rgba(140, 70, 70, 1); }
-
-/* Color Theme Swatches in HSLA */
-.Campfire-1-hsla { color: hsla(163, 22, 44, 1); }
-.Campfire-2-hsla { color: hsla(50, 78, 76, 1); }
-.Campfire-3-hsla { color: hsla(28, 83, 69, 1); }
-.Campfire-4-hsla { color: hsla(5, 62, 60, 1); }
-.Campfire-5-hsla { color: hsla(0, 33, 41, 1); }
-
 
 <palette>
 <color name='Campfire-1' rgb='588C7E' r='87' g='140' b='126' />
