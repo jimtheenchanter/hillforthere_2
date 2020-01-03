@@ -11,6 +11,8 @@
     <string name="save_location"> Save Location </string>
     <string name="select_hillfort_image">Select Hillfort Image</string>
     <string name="change_image">Change Image</string>
+<string name="edit_map">Tap x5 times to edit map </string>
+    <string name="rating_label">Rate this Hillfort</string>
 
     <string name="menu_deleteHillfort">Delete</string>
     <string name="menu_logout">Log out</string>
@@ -19,12 +21,12 @@
     <string name="edtPassword">secret</string>
     <string name="edtUsername">homer@simpson.com</string>
     <string name="titleLongitude">Longitude:  </string>
-
+    <string name="lat">Lat:  </string>
+    <string name="lng">Long:  </string>
     <string name="button_location">View on Map</string>
     <string name="title_activity_map">Map</string>
     <string name="title_activity_hillfort_maps">Map of all Hillforts</string>
     <string name="show_map">Show Map</string>
-
     <string name="hillfort_title_placeholder">Hillfort Title</string>
     <string name="hillfort_image_placeholder">Hillfort Image</string>
     <string name="hillfort_description_placeholder">Description</string>
@@ -40,7 +42,7 @@
     <string name="password_label">Password</string>
     <string name="button_signup"> Sign up </string>
     <string name="button_login"> Log in </string>
-    <string name="favourite"> Love this Hillfort!</string>
+    <string name="favourite"> Favourite!</string>
     <string name="title_activity_bottom_nav">bottom_nav</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>

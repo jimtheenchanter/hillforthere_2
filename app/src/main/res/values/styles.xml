@@ -3,8 +3,8 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/campfire1</item>
-        <item name="colorPrimaryDark">@color/campfire5</item>
+        <item name="colorPrimary">@color/campfire2</item>
+        <item name="colorPrimaryDark">@color/campfire1</item>
         <item name="colorAccent">@color/campfire3</item>
     </style>
 

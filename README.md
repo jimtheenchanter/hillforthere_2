@@ -69,10 +69,3 @@ https://developer.android.com/guide/topics/ui/controls/button
 
 
 
-<palette>
-<color name='Campfire-1' rgb='588C7E' r='87' g='140' b='126' />
-<color name='Campfire-2' rgb='F2E394' r='242' g='226' b='147' />
-<color name='Campfire-3' rgb='F2AE72' r='242' g='174' b='114' />
-<color name='Campfire-4' rgb='D96459' r='216' g='100' b='89' />
-<color name='Campfire-5' rgb='8C4646' r='140' g='70' b='70' />
-</palette>

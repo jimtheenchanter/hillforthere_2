@@ -14,20 +14,10 @@
         android:title="@string/menu_logout"
         app:showAsAction="never"
 />
-    <item
-        android:id="@+id/settings"
-        android:icon="@android:drawable/ic_menu_add"
-        android:title="@string/menu_settings"
-        />
-    <item
-        android:id="@+id/stats"
-        android:icon="@android:drawable/ic_menu_add"
-        android:title="@string/menu_stats"
-        />
 
     <item
         android:id="@+id/item_map"
         android:icon="@android:drawable/ic_menu_mapmode"
         android:title="@string/show_map"
-        app:showAsAction="always"/>
+        app:showAsAction="ifRoom"/>
 </menu>

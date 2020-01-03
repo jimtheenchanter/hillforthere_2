@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FFC107</color>
-    <color name="colorPrimaryDark">#FFA000</color>
-    <color name="colorAccent">#212121</color>
+    <color name="colorPrimary">#588C7E</color>
+    <color name="colorPrimaryDark">#c0cfc5</color>
+    <color name="colorAccent">#F2AE72</color>
 
     <color name="campfire1">#588C7E</color>
+    <color name="campfire1a">#c0cfc5</color>
     <color name="campfire2">#F2E394</color>
     <color name="campfire3">#F2AE72</color>
 

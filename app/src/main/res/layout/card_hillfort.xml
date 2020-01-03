@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="8dp"
-    android:elevation="24dp">
+    android:elevation="24dp"
+    android:background="@color/campfire3">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -16,29 +17,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="400dp"
-            android:layout_height="132dp">
-
-            <ImageView
-                android:id="@+id/imageIcon"
-                android:layout_width="90dp"
-                android:layout_height="81dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:contentDescription="@string/hillfort_image_placeholder"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.028"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/description"
-                android:layout_width="182dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="16dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/hillfortName"
-                app:layout_constraintTop_toBottomOf="@+id/hillfortName" />
+            android:layout_height="132dp"
+            android:background="@color/campfire1a">
 
             <!--            <ImageView-->
             <!--                android:id="@+id/location"-->
@@ -71,6 +51,32 @@
             <!--                app:layout_constraintTop_toBottomOf="@+id/imageIcon" />-->
 
             <ImageView
+                android:id="@+id/imageIcon"
+                android:layout_width="104dp"
+                android:layout_height="97dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="@string/hillfort_image_placeholder"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.028"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.418" />
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="182dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/hillfortName"
+                app:layout_constraintTop_toBottomOf="@+id/hillfortName"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <ImageView
                 android:id="@+id/favourite"
                 android:layout_width="26dp"
                 android:layout_height="38dp"
@@ -92,26 +98,31 @@
                 android:layout_marginTop="8dp"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/imageIcon"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0" />
 
             <RatingBar
                 android:id="@+id/ratingBar2"
-                style="@style/Widget.AppCompat.RatingBar.Small"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:stepSize="0.1"
+                style="@android:style/Widget.DeviceDefault.RatingBar.Indicator"
+                android:layout_width="185dp"
+                android:layout_height="35dp"
                 android:isIndicator="true"
                 android:max="5"
                 android:maxHeight="22dip"
-                android:minHeight="22dip"
-                android:scaleX="0.5"
-                android:scaleY="0.5"
+                android:minHeight="24dip"
                 android:numStars="5"
                 android:rating="1"
-                app:layout_constraintEnd_toEndOf="@+id/imageIcon"
-                app:layout_constraintTop_toBottomOf="@+id/imageIcon" />
+                android:scaleX="0.5"
+                android:scaleY="0.5"
+                android:stepSize="0.1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/description"
+                app:layout_constraintTop_toBottomOf="@+id/description" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

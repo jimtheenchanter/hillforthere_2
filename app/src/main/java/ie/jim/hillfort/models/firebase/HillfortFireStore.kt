@@ -51,6 +51,7 @@ class HillfortFireStore(val context: android.content.Context) : HillfortStore, A
 
         db.child("users").child(userId).child("hillforts").child(hillfort.fbId).setValue(hillfort)
         if ((hillfort.image.length) > 0 && (hillfort.image[0] != 'h')) {
+            update(hillfort)
             updateImage(hillfort)
         }
     }

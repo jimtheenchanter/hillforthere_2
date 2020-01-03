@@ -62,7 +62,7 @@ open abstract class BaseView() : AppCompatActivity(), AnkoLogger {
         supportActionBar?.setDisplayHomeAsUpEnabled(upEnabled)
     }
 
-// attempt to i mplement bottom_nav
+// attempt to implement bottom_nav
 //    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 //        menuInflater.inflate(
 //            R.menu.bottom_nav_menu, menu)
