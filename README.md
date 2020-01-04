@@ -7,11 +7,11 @@
 Archaeological fieldwork Android App for students to navigate to and update images and coordinates of known hillforts in Ireland.
 
 # Foundation
-AndroidX - JetPack Libraries
+AndroidX - JetPack Libraries.
 
 # UI
 Using Android's constraint layout the UI is designed to take up no more than 1 screen at a time i.e no scroll bar.  
-All components have a horizontal and vertical constraint defined and a landscape version for most screens.
+Both horizontal and vertical constraint views defined and a landscape version for most screens.
 
 # Behaviour
 Menu - Context sensitive menu options including
@@ -38,13 +38,14 @@ Set locations of Hillfort from current phone location.
 
 Map of all Hillforts
 
-View/ Presenter Model  implemented.
+View/ Presenter Model implemented.
 
-Local database Room implemented fot development purposes
+Local database Room implemented for development purposes
 
 # Version Control
 
 Git commit history available here 
+https://github.com/jimtheenchanter/hillforthere_2/
 
 
 # Sources
