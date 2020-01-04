@@ -20,7 +20,7 @@ class HillfortMapPresenter(view: BaseView) : BasePresenter(view) {
             val loc = LatLng(it.location.lat, it.location.lng)
             val options = MarkerOptions().title(it.title).position(loc)
             map.addMarker(options).tag = it
-            map.moveCamera(CameraUpdateFactory.newLatLngZoom(loc, it.location.zoom))
+            map.moveCamera(CameraUpdateFactory.newLatLngZoom(loc, 5f))
         }
     }
 

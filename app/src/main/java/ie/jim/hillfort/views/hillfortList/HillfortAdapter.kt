@@ -9,7 +9,6 @@ import ie.jim.hillfort.R
 import ie.jim.hillfort.helpers.readImageFromPath
 import ie.jim.hillfort.models.HillfortModel
 import kotlinx.android.synthetic.main.activity_hillfort.view.*
-
 import kotlinx.android.synthetic.main.card_hillfort.view.favourite
 import kotlinx.android.synthetic.main.card_hillfort.view.*
 import kotlinx.android.synthetic.main.card_hillfort.view.description
@@ -56,10 +55,6 @@ class HillfortAdapter constructor(private var hillforts: List<HillfortModel>,
 
 // set the visible stars amount to amount saved in hillfortFireStore model
            itemView.ratingBar2.setRating(hillfort.rating)
-
-
-
-
             Glide.with(itemView.context).load(hillfort.image).into(itemView.imageIcon);
 
             itemView.setOnClickListener { listener.onHillfortClick(hillfort)}

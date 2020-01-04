@@ -11,6 +11,8 @@ import ie.jim.hillfort.views.BaseView
 import kotlinx.android.synthetic.main.activity_hillfort_maps.*
 import kotlinx.android.synthetic.main.content_hillfort_maps.*
 
+
+// map view set within baseview
 class HillfortMapView : BaseView(), GoogleMap.OnMarkerClickListener {
 
     lateinit var presenter: HillfortMapPresenter

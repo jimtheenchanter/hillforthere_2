@@ -97,7 +97,7 @@ class HillfortPresenter(view: BaseView) : BasePresenter(view) {
     }
 
 //    fun doAddOrSave(title: String, description: String, favourite: Boolean) {
-        fun doAddOrSave(title: String, description: String ,favourite: Boolean, rating: Float) {
+        fun doAddOrSave(title: String, description: String, favourite: Boolean, rating: Float) {
         hillfort.title = title
         hillfort.description = description
         hillfort.favourite = favourite
@@ -130,12 +130,7 @@ class HillfortPresenter(view: BaseView) : BasePresenter(view) {
         }
 
         fun doSelectImage() {
-//            if (edit) {
-//                app.hillforts.update(hillfort)
-//            } else {
-//                app.hillforts.create(hillfort)
-//            }
-//            doAddOrSave(hillfort.title, hillfort.description)
+
             view?.let {
                 showImagePicker(view!!, IMAGE_REQUEST)
             }

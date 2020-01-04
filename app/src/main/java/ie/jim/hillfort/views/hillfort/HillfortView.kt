@@ -36,7 +36,6 @@ import org.jetbrains.anko.toast
 class HillfortView : BaseView(), AnkoLogger {
 
     lateinit var presenter: HillfortPresenter
-//    lateinit var map: GoogleMap
     var hillfort = HillfortModel()  // creating a hillfort as a class member:
 
 
@@ -44,17 +43,14 @@ class HillfortView : BaseView(), AnkoLogger {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hillfort)
         super.init(toolbarAdd, true)
-//          addListenerOnRatingBar()
         info("Hillfort Activity initialized")
         presenter = initPresenter (HillfortPresenter(this)) as HillfortPresenter
-
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync {
             presenter.doConfigureMap(it)  // run the map configuration
             it.setOnMapClickListener { presenter.doSetLocation() }
         }
         chooseImage.setOnClickListener {  presenter.doSelectImage() }
-
     }
 
     override fun showHillfort(hillfort: HillfortModel) {
@@ -64,7 +60,6 @@ class HillfortView : BaseView(), AnkoLogger {
             favourite.isChecked()
         }
         Glide.with(this).load(hillfort.image).into(hillfortImage);
-//        hillfortImage.setImageBitmap(readImageFromPath(this, hillfort.image))
        if (hillfort.image != null) {
             chooseImage.setText(R.string.change_image)
        }
@@ -79,7 +74,6 @@ class HillfortView : BaseView(), AnkoLogger {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_hillfort, menu)
-//       if (presenter.edit && menu != null) menu.getItem(1).setVisible(true)
         return super.onCreateOptionsMenu(menu)
     }
 
@@ -95,6 +89,7 @@ class HillfortView : BaseView(), AnkoLogger {
                     toast(R.string.hint_hillfortName)
                 } else {
                     presenter.doAddOrSave(hillfortName.text.toString(), description.text.toString(), favourite.isChecked, ratingBar.rating)
+                    finish()
                 }
             }
         }

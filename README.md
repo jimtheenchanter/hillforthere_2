@@ -11,16 +11,15 @@ AndroidX - JetPack Libraries
 
 # UI
 Using Android's constraint layout the UI is designed to take up no more than 1 screen at a time i.e no scroll bar.  
-All components have a hosizontal and vertical constraint defined.
+All components have a horizontal and vertical constraint defined and a landscape version for most screens.
 
 # Behaviour
 Menu - Context sensitive menu options including
 
-- up
-- add
-- logout
-- show all markers on map
-
+- Up/back
+- Add new hillfort
+- Log out
+- Show map displaying all hillforts
 
 
 
@@ -40,6 +39,13 @@ Set locations of Hillfort from current phone location.
 Map of all Hillforts
 
 View/ Presenter Model  implemented.
+
+Local database Room implemented fot development purposes
+
+# Version Control
+
+Git commit history available here 
+
 
 # Sources
 - Git Branching:  
